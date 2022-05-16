@@ -65,21 +65,9 @@ img.onload = function(){
 </script>
 
 
-  <input id="download" type="button" value="Descargar" onClick=descargar()>
   
-<script>
-  function descargar(){
-    var filename = prompt("Guardar como...","Nombre del archivo");
-    //para internet explorer
-    
-    link = document.getElementById("download");
-    //Otros navegadores: Google chrome, Firefox etc...
-    link.href = canvas.toDataURL("image.png");// Extensión .png ("image/png") --- Extension .jpg ("image/jpeg")
-    link.download = filename;
-    }
-    
-  </script>
-
+<button id="btnDescargar">Descargar</button>
+    <script src="script.js"></script>
   </body>
 </html>
 
