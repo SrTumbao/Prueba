@@ -1,5 +1,5 @@
-const $canvas = document.querySelector('canvas'),
-$btnDescargar = document.querySelector('btnDescargar');
+const $canvas = document.querySelector("#canvas"),
+$btnDescargar = document.querySelector("#btnDescargar");
 
 
 
