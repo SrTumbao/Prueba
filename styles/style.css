@@ -1,0 +1,6 @@
+canvas{ 
+    background-image:url('imagenes/Piso1.jpg');
+    width: 640px; 
+    height: 420px; 
+    border: 1px black solid; 
+}

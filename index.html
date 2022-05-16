@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>a huevo ya sirve bien</title>
+<script src="jquery.min.js"></script>
+<script src="signature_pad.js"></script>
+
+
+
+
+
+</head>
+<body>
+
+<!-- Contenedor y Elemento Canvas -->
+
+
+<h1>Canvas a PNG</h1>
+  <div id="signature-pad" class="signature-pad" >
+      <h1>Dibujar aqui</h1>
+    <div class="signature-pad--body">
+      <canvas  style="width: 1620px; height: 1120px; border: 1px black solid;" id="canvas"></canvas>
+    </div>
+  </div>
+
+
+<script type="text/javascript">
+
+var wrapper = document.getElementById("signature-pad");
+
+var canvas = wrapper.querySelector("canvas");
+var signaturePad = new SignaturePad(canvas, {
+  
+});
+
+function resizeCanvas() {
+
+  var ratio =  Math.max(window.devicePixelRatio || 1, 1);
+
+  canvas.width = canvas.offsetWidth * ratio;
+  canvas.height = canvas.offsetHeight * ratio;
+  canvas.getContext("2d").scale(ratio, ratio);
+
+  signaturePad.clear();
+}
+
+window.onresize = resizeCanvas;
+resizeCanvas();
+
+</script>
+
+
+<script>
+  var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+
+var img = new Image();
+img.src = "imagenes/Piso1.jpg";
+
+ctx.drawImage(img, 0, 0);
+img.onload = function(){
+  ctx.drawImage(img, 0, 0);
+}
+</script>
+
+
+  <input id="download" type="button" value="Descargar" onClick=descargar()>
+  
+<script>
+  function descargar(){
+    var filename = prompt("Guardar como...","Nombre del archivo");
+    //para internet explorer
+    
+    link = document.getElementById("download");
+    //Otros navegadores: Google chrome, Firefox etc...
+    link.href = canvas.toDataURL("image.png");// Extensión .png ("image/png") --- Extension .jpg ("image/jpeg")
+    link.download = filename;
+    }
+    
+  </script>
+
+  </body>
+</html>
+
